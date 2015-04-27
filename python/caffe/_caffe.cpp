@@ -91,10 +91,10 @@ void PyNet::check_contiguous_array(PyArrayObject* arr, string name,
   }
 }
 
-void PyNet::set_input_arrays(bp::object data_obj, bp::object labels_obj) {
+void PyNet::set_input_arrays(bp::object data_obj, bp::object labels_obj, int layer_idx) {
   // check that this network has an input MemoryDataLayer
   shared_ptr<MemoryDataLayer<float> > md_layer =
-    boost::dynamic_pointer_cast<MemoryDataLayer<float> >(net_->layers()[0]);
+    boost::dynamic_pointer_cast<MemoryDataLayer<float> >(net_->layers()[layer_idx]);
   if (!md_layer) {
     throw std::runtime_error("set_input_arrays may only be called if the"
         " first layer is a MemoryDataLayer");

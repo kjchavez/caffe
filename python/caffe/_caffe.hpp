@@ -106,7 +106,7 @@ class PyNet {
   void Backward(int start, int end) { net_->BackwardFromTo(start, end); }
   void Reshape() { net_->Reshape(); }
 
-  void set_input_arrays(bp::object data_obj, bp::object labels_obj);
+  void set_input_arrays(bp::object data_obj, bp::object labels_obj, int layer_idx);
 
   // Save the network weights to binary proto for net surgeries.
   void save(string filename) {
