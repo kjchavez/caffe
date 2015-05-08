@@ -75,6 +75,8 @@ class PyLayer {
         layer_->blobs().end());
   }
 
+  int type() const { return layer_->type(); }
+
   // this is here only to satisfy boost's vector_indexing_suite
   bool operator == (const PyLayer &other) {
       return this->layer_ == other.layer_;

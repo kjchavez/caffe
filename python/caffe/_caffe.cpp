@@ -183,7 +183,8 @@ BOOST_PYTHON_MODULE(_caffe) {
 
   bp::class_<PyLayer>(
       "Layer", bp::no_init)
-      .add_property("blobs", &PyLayer::blobs);
+      .add_property("blobs", &PyLayer::blobs)
+      .add_property("type", &PyLayer::type);
 
   bp::class_<PySGDSolver, boost::noncopyable>(
       "SGDSolver", bp::init<string>())
